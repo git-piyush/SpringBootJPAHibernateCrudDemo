@@ -42,10 +42,11 @@ public class EmployeeController {
 			return modelResponse;
 		}
 		
-//		@PostMapping("/")
-//		public EmployeeModelResponse save() {
-//			
-//		}
+		@PostMapping("/createemployee")
+		public EmployeeModelResponse save(@Valid @RequestBody EmployeeModelRequest modelRequest) {
+			modelResponse = employeeService.save(modelRequest);
+			return modelResponse;
+		}
 		
 		
 		

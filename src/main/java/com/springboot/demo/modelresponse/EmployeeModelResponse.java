@@ -10,9 +10,8 @@ import com.springboot.demo.entity.Employee;
 public class EmployeeModelResponse {
 
 	public List<Employee> employeeList;
-	
 	public Employee employee;
-
+	public String errorDec;
 	public EmployeeModelResponse() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -38,6 +37,14 @@ public class EmployeeModelResponse {
 
 	public void setEmployee(Employee employee) {
 		this.employee = employee;
+	}
+
+	public String getErrorDec() {
+		return errorDec;
+	}
+
+	public void setErrorDec(String errorDec) {
+		this.errorDec = errorDec;
 	}
 	
 	

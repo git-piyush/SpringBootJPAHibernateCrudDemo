@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.springboot.demo.dao.EmployeeDAO;
 import com.springboot.demo.entity.Employee;
+import com.springboot.demo.modelrequest.EmployeeModelRequest;
 import com.springboot.demo.modelresponse.EmployeeModelResponse;
 
 @Service
@@ -35,9 +36,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void save(Employee theEmployee) {
-		// TODO Auto-generated method stub
-		
+	public EmployeeModelResponse save(EmployeeModelRequest modelRequest) {
+		EmployeeModelResponse modelResponse = new EmployeeModelResponse();
+		modelResponse = employeeDAO.save(modelRequest);
+		return modelResponse;
 	}
 
 	@Override

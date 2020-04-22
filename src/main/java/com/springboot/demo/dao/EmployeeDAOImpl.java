@@ -33,9 +33,11 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public Employee findById(int theId) {
-		// TODO Auto-generated method stub
-		return null;
+	public EmployeeModelResponse findById(int theId) {
+		EmployeeModelResponse employeeResponse = new EmployeeModelResponse();
+		Employee employee = entityManager.find(Employee.class, theId);
+		employeeResponse.setEmployee(employee);
+		return employeeResponse;
 	}
 
 	@Override

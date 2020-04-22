@@ -28,9 +28,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public Employee findById(int theId) {
-		// TODO Auto-generated method stub
-		return null;
+	public EmployeeModelResponse findById(int theId) {
+		EmployeeModelResponse modelResponse = new EmployeeModelResponse();
+		modelResponse = employeeDAO.findById(theId);
+		return modelResponse;
 	}
 
 	@Override

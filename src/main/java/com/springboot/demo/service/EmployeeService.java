@@ -9,7 +9,7 @@ public interface EmployeeService {
 
     public EmployeeModelResponse findAll();
 	
-	public Employee findById(int theId);
+	public EmployeeModelResponse findById(int theId);
 	
 	public void save(Employee theEmployee);
 	

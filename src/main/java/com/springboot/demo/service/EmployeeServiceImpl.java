@@ -45,7 +45,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Override
 	public EmployeeModelResponse deleteById(int theId) {
 		EmployeeModelResponse modelResponse = new EmployeeModelResponse();
-		modelResponse = employeeDAO.deleteById(theId);
+		modelResponse = employeeDAO.findById(theId);
+		modelResponse = employeeDAO.deleteById(modelResponse.getEmployee());
 		return modelResponse;
 		
 	}

@@ -64,16 +64,22 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
 	@Override
 	@Transactional
-	public EmployeeModelResponse deleteById(int theId) {
+	public EmployeeModelResponse deleteById(Employee employee) {
 		EmployeeModelResponse modelResponse = new EmployeeModelResponse();
-		Query query = entityManager.createQuery("delete from Employee e where e.id='"+theId+"'");
+	/*	Query query = entityManager.createQuery("delete from Employee e where e.id='"+theId+"'");
 		int id = query.executeUpdate();
 		if(id>0) {
 			modelResponse.setErrorDec("Employee deleted");
 			return modelResponse;
 		}
 		modelResponse.setErrorDec("Employee deletion failed");
+		return modelResponse; */
+		
+		entityManager.remove(employee);
+		modelResponse.setErrorDec("Employee deleted");
 		return modelResponse;
-	}
+	} 
+		
+		
 
 }

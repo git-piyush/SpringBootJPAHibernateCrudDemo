@@ -14,6 +14,6 @@ public interface EmployeeService {
 	
 	public EmployeeModelResponse save(EmployeeModelRequest modelRequest);
 	
-	public void deleteById(int theId);
+	public EmployeeModelResponse deleteById(int theId);
 
 }

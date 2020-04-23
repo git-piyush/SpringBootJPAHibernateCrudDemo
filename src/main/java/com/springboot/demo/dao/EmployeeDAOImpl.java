@@ -56,16 +56,24 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 			employeeResponse.setErrorDec("Below Employee added");
 			return employeeResponse;
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		employeeResponse.setErrorDec("Employee addition failed");
 		return employeeResponse;
 	}
 
 	@Override
-	public void deleteById(int theId) {
-		// TODO Auto-generated method stub
-		
+	@Transactional
+	public EmployeeModelResponse deleteById(int theId) {
+		EmployeeModelResponse modelResponse = new EmployeeModelResponse();
+		Query query = entityManager.createQuery("delete from Employee e where e.id='"+theId+"'");
+		int id = query.executeUpdate();
+		if(id>0) {
+			modelResponse.setErrorDec("Employee deleted");
+			return modelResponse;
+		}
+		modelResponse.setErrorDec("Employee deletion failed");
+		return modelResponse;
 	}
 
 }

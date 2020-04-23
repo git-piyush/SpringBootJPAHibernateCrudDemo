@@ -43,8 +43,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public void deleteById(int theId) {
-		// TODO Auto-generated method stub
+	public EmployeeModelResponse deleteById(int theId) {
+		EmployeeModelResponse modelResponse = new EmployeeModelResponse();
+		modelResponse = employeeDAO.deleteById(theId);
+		return modelResponse;
 		
 	}
 
